@@ -1,0 +1,92 @@
+﻿[
+  {
+    "lat": 54.380277777778,
+    "lon": 18.620277777778,
+    "uid": 2684,
+    "aqi": "49",
+    "station": {
+      "name": "Gdansk Wrzeszcz, Gdansk, Poland",
+      "time": "2020-06-25T17:00:00+02:00"
+    }
+  },
+  {
+    "lat": 54.465555555556,
+    "lon": 18.464722222222,
+    "uid": 2685,
+    "aqi": "44",
+    "station": {
+      "name": "Gdynia Dabrowa, Gdansk, Poland",
+      "time": "2020-06-25T18:00:00+02:00"
+    }
+  },
+  {
+    "lat": 54.560833333333,
+    "lon": 18.493333333333,
+    "uid": 2680,
+    "aqi": "44",
+    "station": {
+      "name": "Gdynia Pogorze, Gdansk, Poland",
+      "time": "2020-06-25T18:00:00+02:00"
+    }
+  },
+  {
+    "lat": 54.525277777778,
+    "lon": 18.536388888889,
+    "uid": 2686,
+    "aqi": "-",
+    "station": {
+      "name": "Gdynia Srodmiescie, Gdansk, Poland",
+      "time": "2020-06-25T18:00:00+02:00"
+    }
+  },
+  {
+    "lat": 54.353333333333,
+    "lon": 18.635277777778,
+    "uid": 2677,
+    "aqi": "54",
+    "station": {
+      "name": "Gdansk Srodmiescie, Gdansk, Poland",
+      "time": "2020-06-25T18:00:00+02:00"
+    }
+  },
+  {
+    "lat": 54.367777777778,
+    "lon": 18.701111111111,
+    "uid": 2678,
+    "aqi": "20",
+    "station": {
+      "name": "Gdansk Stogi, Gdansk, Poland",
+      "time": "2020-06-25T18:00:00+02:00"
+    }
+  },
+  {
+    "lat": 54.400833333333,
+    "lon": 18.6575,
+    "uid": 2679,
+    "aqi": "14",
+    "station": {
+      "name": "Gdansk Nowy Port, Gdansk, Poland",
+      "time": "2020-06-25T18:00:00+02:00"
+    }
+  },
+  {
+    "lat": 54.328333333333,
+    "lon": 18.557777777778,
+    "uid": 2681,
+    "aqi": "41",
+    "station": {
+      "name": "Gdansk Szadołki, Gdansk, Poland",
+      "time": "2020-06-25T18:00:00+02:00"
+    }
+  },
+  {
+    "lat": 54.431666666667,
+    "lon": 18.579722222222,
+    "uid": 2682,
+    "aqi": "9",
+    "station": {
+      "name": "Sopot, Gdansk, Poland",
+      "time": "2020-06-25T18:00:00+02:00"
+    }
+  }
+]

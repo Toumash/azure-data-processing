@@ -1,9 +1,13 @@
 using System;
+using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
+using System.Reflection;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using RestSharp;
 
 namespace WSB.DataProcessingIngest
@@ -23,15 +27,27 @@ namespace WSB.DataProcessingIngest
 
             string token = config.GetValue<string>("waqi_token");
             log.LogInformation($"Executing waqi api...");
+            var responseList = new List<dynamic>();
 
-            var client = new RestClient($"https://api.waqi.info/feed/geo:54.380277777778;18.620277777778/?token={token}");
-            var request = new RestRequest(Method.GET);
-            request.AddHeader("Content-Type", "application/json");
-            var response = client.Execute<dynamic>(request);
+            var binDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            var rootDirectory = Path.GetFullPath(Path.Combine(binDirectory, ".."));
+
+            var stations = JsonConvert.DeserializeObject<List<dynamic>>(File.ReadAllText(rootDirectory + "/latlang.json"));
+
+            foreach (var station in stations)
+            {
+                var client = new RestClient(@$"https://api.waqi.info/feed/geo:{station.lat};{station.lon}/?token={token}");
+                client.Timeout = -1;
+                var request = new RestRequest(Method.GET);
+                request.AddHeader("Content-Type", "application/json");
+                var response = client.Execute<dynamic>(request);
+                if (response.IsSuccessful)
+                    responseList.Add(response.Data["data"]);
+            }
 
             log.LogInformation($"got the response!");
 
-            document = response.Data;
+            document = new { values= responseList };
         }
     }
 }
