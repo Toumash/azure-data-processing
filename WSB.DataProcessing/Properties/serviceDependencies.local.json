@@ -16,9 +16,6 @@
       "type": "mssql",
       "suggestion": "true",
       "ignored": "true"
-    },
-    "secrets1": {
-      "type": "secrets.user"
     }
   }
 }
