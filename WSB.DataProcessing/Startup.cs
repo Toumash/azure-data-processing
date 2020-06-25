@@ -122,7 +122,7 @@ namespace WSB.DataProcessing
             var containerName = "ViktigeData";
             var cosmosDbService = new CosmosDbService<T>(client, databaseName, containerName);
             Microsoft.Azure.Cosmos.DatabaseResponse database = await client.CreateDatabaseIfNotExistsAsync(databaseName);
-            await database.Database.CreateContainerIfNotExistsAsync(containerName, "/");
+            await database.Database.CreateContainerIfNotExistsAsync(containerName, "/_partitionKey");
 
             return cosmosDbService;
         }
