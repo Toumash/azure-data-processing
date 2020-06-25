@@ -8,9 +8,10 @@ namespace WSB.DataProcessingIngest
     public static class Function1
     {
         [FunctionName("Function1")]
-        public static void Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log, [CosmosDB("Fagkveld", "ViktigeData", CreateIfNotExists = true, ConnectionStringSetting = "Default")] out dynamic document)
+        public static void Run([TimerTrigger("0 * * * * *")] TimerInfo myTimer, ILogger log, 
+            [CosmosDB("Fagkveld", "ViktigeData", CreateIfNotExists = true, ConnectionStringSetting = "Default")] out dynamic document)
         {
-            log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
+            log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now} with  cosmos db output!");
             document = new { xd = DateTime.Now };
         }
     }

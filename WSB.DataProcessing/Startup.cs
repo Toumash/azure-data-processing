@@ -14,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using WSB.DataProcessing.Models;
 
 namespace WSB.DataProcessing
 {
@@ -76,6 +77,8 @@ namespace WSB.DataProcessing
             });
             services.AddRazorPages();
             services.AddApplicationInsightsTelemetry(Configuration["APPINSIGHTS_INSTRUMENTATIONKEY"]);
+            services.AddSingleton<CosmosDbService<Report>>(InitializeCosmosClientInstanceAsync<Report>().GetAwaiter().GetResult());
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -106,6 +109,22 @@ namespace WSB.DataProcessing
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+        }
+
+        /// <summary>
+        /// Creates a Cosmos DB database and a container with the specified partition key. 
+        /// </summary>
+        /// <returns></returns>
+        private async Task<CosmosDbService<T>> InitializeCosmosClientInstanceAsync<T>()
+        {
+            Microsoft.Azure.Cosmos.CosmosClient client = new Microsoft.Azure.Cosmos.CosmosClient(Configuration.GetValue<string>("ConnectionStrings:Default", null));
+            var databaseName = "Fagkveld";
+            var containerName = "ViktigeData";
+            var cosmosDbService = new CosmosDbService<T>(client, databaseName, containerName);
+            Microsoft.Azure.Cosmos.DatabaseResponse database = await client.CreateDatabaseIfNotExistsAsync(databaseName);
+            await database.Database.CreateContainerIfNotExistsAsync(containerName, "/");
+
+            return cosmosDbService;
         }
     }
 }

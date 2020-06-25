@@ -15,14 +15,18 @@ namespace WSB.DataProcessing.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public CosmosDbService<Report> Cosmos { get; }
+
+        public HomeController(ILogger<HomeController> logger, CosmosDbService<Report> cosmos)
         {
             _logger = logger;
+            Cosmos = cosmos;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var items = await Cosmos.GetItemsAsync("SELECT * FROM c");
+            return View(items);
         }
 
         public IActionResult Privacy()
