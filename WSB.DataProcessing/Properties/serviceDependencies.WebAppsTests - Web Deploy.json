@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "cosmosdb1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroup')]/providers/Microsoft.DocumentDB/databaseAccounts/wsbdataprocessingaccount",
+      "type": "cosmosdb.azure",
+      "connectionId": "Default",
+      "secretStore": "AzureAppSettings"
+    },
+    "appInsights1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroup')]/providers/microsoft.insights/components/WSB.DataProcessing",
+      "type": "appInsights.azure",
+      "connectionId": "APPINSIGHTS_INSTRUMENTATIONKEY",
+      "secretStore": "AzureAppSettings"
+    },
+    "mssql1": {
+      "type": "mssql",
+      "suggestion": "true",
+      "ignored": "true"
+    }
+  }
+}

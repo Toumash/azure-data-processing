@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Resources/resourceGroups",
+      "name": "Tests",
+      "location": "westeurope",
+      "apiVersion": "2019-10-01"
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "name": "[concat('TestsDeployment', uniqueString(subscription().subscriptionId))]",
+      "resourceGroup": "Tests",
+      "apiVersion": "2019-10-01",
+      "dependsOn": [
+        "Tests"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "resources": [
+            {
+              "name": "wsbdataprocessingaccount",
+              "location": "West Europe",
+              "type": "Microsoft.DocumentDB/databaseAccounts",
+              "kind": "GlobalDocumentDB",
+              "properties": {
+                "databaseAccountOfferType": "Standard"
+              },
+              "apiVersion": "2015-04-08"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
