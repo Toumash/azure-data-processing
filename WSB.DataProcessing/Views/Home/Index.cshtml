@@ -9,7 +9,9 @@
 </div>
 
 
-@foreach (var item in Model)
-{
-    <span>@item.Id</span>
-}
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item.Id</li>
+    }
+</ul>
