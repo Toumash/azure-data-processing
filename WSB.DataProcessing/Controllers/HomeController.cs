@@ -25,8 +25,8 @@ namespace WSB.DataProcessing.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var items = await Cosmos.GetItemsAsync("SELECT * FROM c");
-            return View(items);
+            var items = await Cosmos.GetItemsAsync("SELECT TOP 2 * FROM c");
+            return View(Tuple.Create<Report, Report>(items.First(), items.Skip(1).First()));
         }
 
         public IActionResult Privacy()

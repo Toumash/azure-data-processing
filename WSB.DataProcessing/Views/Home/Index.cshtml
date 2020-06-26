@@ -1,17 +1,59 @@
-﻿@model List<Report>
+﻿@model Tuple<Report, Report>
 @{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Gdańsk, raport powietrza</h1>
 </div>
 
-
-<ul>
-    @foreach (var item in Model)
-    {
-        <li>@item.Id</li>
+<style>
+    td, th {
+        width: 200px;
+        text-align: right;
     }
-</ul>
+        td:nth-child(1) {
+            width: 400px;
+        }
+</style>
+
+@{
+    var keys = Model.Item1.values.First().iaqi.Select(v => v.Key);
+}
+<table>
+    <thead>
+        <tr>
+            <th>Stacja</th>
+            @foreach (var key in keys)
+            {
+                <th>@key</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var station in Model.Item1.values)
+        {
+            <tr>
+                <td>@station.city.name.Split(',')[0]</td>
+                @foreach (var k in keys)
+                {
+                    if (station.iaqi.ContainsKey(k))
+                    {
+                        var val = station.iaqi[k];
+                        var id = station.idx;
+                        var first = val.v;
+                        var second = Model.Item2.values.First(val => val.idx == id).iaqi[k].v;
+                        var bigger = first > second;
+                        <td style="background-color: @(bigger?"lightcoral":"lightgreen")">
+                            @val.v
+                        </td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+                }
+            </tr>
+        }
+    </tbody>
+</table>

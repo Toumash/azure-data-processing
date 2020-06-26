@@ -41,6 +41,7 @@ namespace WSB.DataProcessingIngest
                 var request = new RestRequest(Method.GET);
                 request.AddHeader("Content-Type", "application/json");
                 var response = client.Execute<dynamic>(request);
+
                 if (response.IsSuccessful)
                     responseList.Add(response.Data["data"]);
             }
