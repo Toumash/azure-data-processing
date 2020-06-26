@@ -15,7 +15,7 @@ namespace WSB.DataProcessingIngest
     public static class Function1
     {
         [FunctionName("ApiIngest")]
-        public static void Run([TimerTrigger("0 * * * * *")] TimerInfo myTimer, ILogger log, ExecutionContext context,
+        public static void Run([TimerTrigger("0 5 */2 * * *")] TimerInfo myTimer, ILogger log, ExecutionContext context,
             [CosmosDB("Fagkveld", "ViktigeData", CreateIfNotExists = true, ConnectionStringSetting = "Default")] out dynamic document)
         {
 
