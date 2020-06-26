@@ -1,6 +1,6 @@
 using System;
 
-namespace WSB.DataProcessing.Models
+namespace DataProcessing.Front.Models
 {
     public class ErrorViewModel
     {

@@ -23,7 +23,7 @@
           "contentVersion": "1.0.0.0",
           "resources": [
             {
-              "name": "WSB.DataProcessing",
+              "name": "DataProcessing.Front",
               "type": "microsoft.insights/components",
               "location": "westeurope",
               "kind": "web",

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30128.36
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSB.DataProcessing", "WSB.DataProcessing\WSB.DataProcessing.csproj", "{19D967ED-6172-4037-9B7D-ED831372AC2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataProcessing.Front", "WSB.DataProcessing\DataProcessing.Front.csproj", "{19D967ED-6172-4037-9B7D-ED831372AC2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSB.DataProcessingIngest", "WSB.DataProcessingIngest\WSB.DataProcessingIngest.csproj", "{13B64AA8-6877-4DEF-AF5E-8E93F5E23F04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataProcessing.Ingest", "WSB.DataProcessingIngest\DataProcessing.Ingest.csproj", "{13B64AA8-6877-4DEF-AF5E-8E93F5E23F04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

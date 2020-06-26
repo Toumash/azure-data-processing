@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using WSB.DataProcessing.Models;
+using DataProcessing.Front.Models;
 
-namespace WSB.DataProcessing.Controllers
+namespace DataProcessing.Front.Controllers
 {
     [Authorize]
     public class HomeController : Controller

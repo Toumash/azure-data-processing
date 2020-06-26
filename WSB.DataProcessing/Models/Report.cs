@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WSB.DataProcessing.Models
+namespace DataProcessing.Front.Models
 {
     public class T
     {

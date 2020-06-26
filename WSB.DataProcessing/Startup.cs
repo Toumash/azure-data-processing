@@ -14,9 +14,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
-using WSB.DataProcessing.Models;
+using DataProcessing.Front.Models;
 
-namespace WSB.DataProcessing
+namespace DataProcessing.Front
 {
     public class Startup
     {

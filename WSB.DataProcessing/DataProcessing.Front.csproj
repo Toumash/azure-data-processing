@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UserSecretsId>aspnet-WSB.DataProcessing-d479a64b-bfcb-4f32-930b-f0baab8df8cb</UserSecretsId>
+    <UserSecretsId>aspnet-DataProcessing.Front-d479a64b-bfcb-4f32-930b-f0baab8df8cb</UserSecretsId>
     <WebProject_DirectoryAccessLevelKey>1</WebProject_DirectoryAccessLevelKey>
-    <ApplicationInsightsResourceId>/subscriptions/2fa3118a-f7c6-47cb-a553-3b9580685bbc/resourcegroups/Tests/providers/Microsoft.Insights/components/WSB.DataProcessing</ApplicationInsightsResourceId>
+    <ApplicationInsightsResourceId>/subscriptions/2fa3118a-f7c6-47cb-a553-3b9580685bbc/resourcegroups/Tests/providers/Microsoft.Insights/components/DataProcessing.Front</ApplicationInsightsResourceId>
   </PropertyGroup>
 
 

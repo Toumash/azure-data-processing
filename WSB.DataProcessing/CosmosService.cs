@@ -1,4 +1,4 @@
-﻿namespace WSB.DataProcessing
+﻿namespace DataProcessing.Front
 {
     using System.Collections.Generic;
     using System.Linq;

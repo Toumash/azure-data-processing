@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using RestSharp;
 
-namespace WSB.DataProcessingIngest
+namespace DataProcessing.Ingest
 {
     public static class Function1
     {
